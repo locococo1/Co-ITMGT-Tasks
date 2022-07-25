@@ -37,18 +37,10 @@ def shift_letter(letter, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    list=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    i=0;
-    if letter==" ":
-        return " ";
+    if letter == " ":
+        return " "
     else:
-        for i in range(26):
-            if letter==list[i]:
-                if i+shift>25:
-                    return list[((i+shift)%25)-1]
-                else:
-                    return list[i+shift]
-            i=i+1;
+        return chr(ord("A") + (ord(letter) - ord("A") + shift) % 26)
 
 def caesar_cipher(message, shift):
     '''Caesar Cipher. 
@@ -70,30 +62,7 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    list=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    i=0;
-    j=0;
-    message_index=[];
-    for j in range(len(message)):
-        if message[j]==" ":
-            message_index.append(" ");
-        else:
-            for i in range(26):
-                if message[j]==list[i]:
-                    message_index.append(i);
-                i=i+1;
-        j=j+1;
-    k=0;
-    final=[];
-    for k in range(len(message)):
-        if message[k]==" ":
-            final.append(" ");
-        elif shift+message_index[k]>25:
-            final.append(list[((shift+message_index[k])%25)-1]);
-        else:
-            final.append(list[shift+message_index[k]]);
-        k=k+1;
-    return "".join(final)
+    return "".join([" " if x == " " else chr(ord("A") + (ord(letter) - ord("A") + shift) % 26) for x in message])
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter. 
