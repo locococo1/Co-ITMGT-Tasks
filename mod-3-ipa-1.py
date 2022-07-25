@@ -62,7 +62,7 @@ def caesar_cipher(message, shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    return "".join([" " if x == " " else chr(ord("A") + (ord(letter) - ord("A") + shift) % 26) for x in message])
+    return "".join([" " if x == " " else chr(ord("A") + (ord(x) - ord("A") + shift) % 26) for x in message])
 
 def shift_by_letter(letter, letter_shift):
     '''Shift By Letter. 
