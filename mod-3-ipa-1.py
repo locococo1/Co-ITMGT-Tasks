@@ -92,23 +92,10 @@ def shift_by_letter(letter, letter_shift):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    list=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-    i=0;
-    for i in range(26):
-        if letter_shift==list[i]:
-            shift=i
-        i=i+1;
-    i=0;
-    if letter==" ":
-        return " ";
+    if letter == " ":
+        return " " 
     else:
-        for i in range(26):
-            if letter==list[i]:
-                if i+shift>25:
-                    return list[((i+shift)%25)-1]
-                else:
-                    return list[i+shift]
-            i=i+1;
+        return chr(ord("A") + (ord(letter) - ord("A") + ord(letter_shift) - ord("A")) % 26)
 
 def vigenere_cipher(message, key):
     '''Vigenere Cipher. 
